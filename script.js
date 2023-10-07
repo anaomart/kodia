@@ -47,7 +47,7 @@ navbarButton.addEventListener('click', () => {
 
     if (layoutMenu.style.height == '') {
         bottomNav.style.opacity = 1
-        layoutMenu.style.height = "100%";
+        layoutMenu.style.height = "100vh";
         bottomNav.style.display = 'flex'
 
 
@@ -59,4 +59,22 @@ navbarButton.addEventListener('click', () => {
 
     }
 })
-console.log(navbarButton)
+
+// image shows up(third section)
+const hiddenElement = document.querySelectorAll('.f-container *')
+
+const observer = new IntersectionObserver((entries) => {
+    console.log(entries)
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show')
+        } else {
+            entry.target.classList.remove('show')
+
+        }
+    })
+})
+hiddenElement.forEach(el => {
+    el.classList.add('hidden')
+    observer.observe(el)
+})
