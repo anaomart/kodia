@@ -1,4 +1,5 @@
 const parallaxElement = document.querySelectorAll(".parallax-element");
+const screenWidth = window.screen.width;
 let lastScrollY = window.scrollY;
 // parallax scrolling
 window.addEventListener("scroll", function() {
@@ -8,11 +9,20 @@ window.addEventListener("scroll", function() {
         if (scrollDirection == 'down') {
             parallaxElement[i].style.transform = `translateY(${-scrollY *20}px)`;
             parallaxElement[1].style.opacity = (scrollY / 5000)
+
         } else {
             parallaxElement[i].style.transform = `translateY(0px)`
             parallaxElement[i].style.opacity = 1;
 
+
         }
+
+        // // remove layout mene on scroll
+        // if (screenWidth < 1024 && Math.abs(lastScrollY - scrollY) > 30) {
+        //     layoutMenu.style.height = "0";
+        //     bottomNav.style.opacity = 0
+        //     bottomNav.style.display = 'none'
+        // }
     }
     lastScrollY = scrollY;
 });
@@ -44,10 +54,11 @@ const layoutMenu = document.querySelector('.layout-menu')
 const bottomNav = document.querySelector('.bottom-nav')
 
 navbarButton.addEventListener('click', () => {
+    console.log("click")
 
     if (layoutMenu.style.height == '') {
         bottomNav.style.opacity = 1
-        layoutMenu.style.height = "100vh";
+        layoutMenu.style.height = "100%";
         bottomNav.style.display = 'flex'
 
 
@@ -61,10 +72,9 @@ navbarButton.addEventListener('click', () => {
 })
 
 // image shows up(third section)
-const hiddenElement = document.querySelectorAll('.f-container *')
+const hiddenElement = document.querySelectorAll('.f-card *')
 
 const observer = new IntersectionObserver((entries) => {
-    console.log(entries)
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show')
