@@ -17,7 +17,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -277,7 +277,10 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-height: 600px;
+  /* max-height: 600px; */
+}
+.f-card:hover {
+  cursor: url(https://cdn-icons-png.flaticon.com/512/7193/7193153.png), auto;
 }
 .f-card p {
   font-size: 18px;

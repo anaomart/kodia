@@ -9,8 +9,8 @@ window.addEventListener("scroll", function() {
     const scrollDirection = scrollY > lastScrollY ? "down" : "up";
     for (let i = 0; i < parallaxElement.length; i++) {
         if (scrollDirection == 'down') {
-            parallaxElement[i].style.transform = `translateY(${-scrollY *20}px)`;
-            parallaxElement[1].style.opacity = (scrollY / 5000)
+            parallaxElement[i].style.transform = `translateY(${-scrollY }px)`;
+            parallaxElement[1].style.opacity = 1 - (scrollY / 2)
 
         } else {
             parallaxElement[i].style.transform = `translateY(0px)`
@@ -81,7 +81,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show')
         } else {
-            entry.target.classList.remove('show')
+            // entry.target.classList.remove('show')
 
         }
     })
