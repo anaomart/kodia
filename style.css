@@ -20,6 +20,7 @@ html {
   width: 100vw;
   height: 100vh;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .container {
@@ -344,16 +345,16 @@ button:hover {
   filter: blur(1px);
 }
 .f-left .hidden {
-  transform: translateX(-100px);
+  margin-left: -100%;
 }
 .f-left .show {
-  transform: translateX(0%);
+  margin-left: 0;
 }
 .f-right .hidden {
-  transform: translateX(100px);
+  margin-left: 100%;
 }
 .f-right .show {
-  transform: translateX(0%);
+  margin-left: 0;
 }
 .show {
   opacity: 1;
@@ -368,7 +369,7 @@ button:hover {
     gap: 150px;
   }
   .f-left *,
-  .f-right {
+  .f-right * {
     width: 100%;
   }
 }
