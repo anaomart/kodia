@@ -1,9 +1,11 @@
 const parallaxElement = document.querySelectorAll(".parallax-element");
 const screenWidth = window.screen.width;
 let lastScrollY = window.scrollY;
+const body = document.querySelector("body");
 // parallax scrolling
 window.addEventListener("scroll", function() {
     const scrollY = window.scrollY;
+    console.log({ scrollY });
     const scrollDirection = scrollY > lastScrollY ? "down" : "up";
     for (let i = 0; i < parallaxElement.length; i++) {
         if (scrollDirection == 'down') {
@@ -25,7 +27,7 @@ window.addEventListener("scroll", function() {
         // }
     }
     lastScrollY = scrollY;
-});
+}, false);
 
 // hovering lighting
 const listItems = document.querySelectorAll(".bottom-nav a");
